@@ -70,7 +70,7 @@ class ProducaoController extends Controller
         $producao = Producao::find($id);
 
         if (!$producao) {
-            return response()->json([
+            return response()->json([ 
                 'message' => 'Produção não encontrada.',
             ], 404);
         }

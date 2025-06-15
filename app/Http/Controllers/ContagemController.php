@@ -11,7 +11,7 @@ class ContagemController extends Controller
     {
         return response()->json([
             'Producaos' => Producao::count(),
-            'Funcionarios' => Funcionario::count(),
+            'Funcionarios' => Funcionario::count(), 
         ]);
     }
 }

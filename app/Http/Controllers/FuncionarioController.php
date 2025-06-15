@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\JsonResponse; 
 
 class FuncionarioController extends Controller
 {

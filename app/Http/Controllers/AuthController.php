@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Sanctum\PersonalAccessToken;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\ValidationException; 
 
 class AuthController extends Controller
 {
