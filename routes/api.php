@@ -17,5 +17,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('producoes', ProducaoController::class);
     Route::apiResource('funcionarios', FuncionarioController::class);
 
-    Route::get('/contagem', [ContagemController::class, 'contagens']);
+    Route::get('/contagem', [ContagemController::class, 'contagens']); 
 });
