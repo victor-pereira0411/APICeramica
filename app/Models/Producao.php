@@ -13,7 +13,7 @@ class Producao extends Model
 
     protected $fillable = [
         'data_producao',
-        'milheiros_produzidos',
+        'milheiros_produzidos', 
     ];
 
     protected $casts = [
