@@ -12,13 +12,14 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+
     public function register(Request $request)
 {
 
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
+        'password' => 'required|string|min:8',
     ]);
 
     if ($validator->fails()) {
@@ -58,7 +59,13 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Login bem-sucedido.',
                 'token' => $token,
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ],
             ], 200);
+            
         }
 
         return response()->json(['message' => 'Credenciais inválidas.'], 401);
@@ -66,10 +73,10 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::user()->tokens->each(function ($token) {
-            $token->delete();
-        });
-
+        $user = Auth::user();
+    
+        $request->user()->currentAccessToken()->delete();
+    
         return response()->json(['message' => 'Logout realizado com sucesso.'], 200);
     }
 }
